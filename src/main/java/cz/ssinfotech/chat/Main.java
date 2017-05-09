@@ -17,6 +17,9 @@
 package cz.ssinfotech.chat;
 
 import javax.faces.webapp.FacesServlet;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRegistration;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -32,10 +35,10 @@ import org.springframework.context.annotation.Configuration;
 @EnableAutoConfiguration
 public class Main extends SpringBootServletInitializer {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
         SpringApplication.run(Main.class, args);
     }
-    
+        
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         return application.sources(Main.class);

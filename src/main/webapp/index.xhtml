@@ -15,7 +15,7 @@
 	<h:body>
 		<h:form>
 			<prime:panel header="Your messages" >
-				<prime:inputText id="input1" value="#{messageBean.text}" />  
+				<prime:inputText id="input1" value="#{messageBean.getText()}" />  
 				<prime:commandButton value="Submit" id="ajax" update="messages" actionListener="#{messageBean.addMessage}" styleClass="ui-priority-primary" />
 			</prime:panel>
 			<prime:panel header="All messages" id="messages">
