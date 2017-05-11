@@ -8,13 +8,13 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class MessageRepository {
-	private final List<Message> repository = Collections.synchronizedList(new LinkedList<Message>()); 
-	
+	private final List<Message> repository = Collections.synchronizedList(new LinkedList<Message>());
+
 	public void addMessage(Message message) {
-		repository.add(message);
+		this.repository.add(message);
 	}
-	
+
 	public List<Message> getMessages(){
-		return Collections.unmodifiableList(repository);
+		return Collections.unmodifiableList(this.repository);
 	}
 }
