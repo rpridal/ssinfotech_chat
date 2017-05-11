@@ -1,6 +1,3 @@
-/**
- * @author jegllpet
- */
 package cz.ssinfotech.chat.controller;
 
 import java.util.List;
@@ -11,13 +8,9 @@ import org.springframework.stereotype.Component;
 
 import cz.ssinfotech.chat.domain.Message;
 import cz.ssinfotech.chat.service.MessageService;
-import lombok.Getter;
-import lombok.Setter;
 
 @Component
 @Scope("request")
-@Getter
-@Setter
 public class MessageBean {
 
 	@Autowired
@@ -32,5 +25,21 @@ public class MessageBean {
 
 	public List<Message> getMessages() {
 		return this.messageService.getMessages();
+	}
+	
+	public MessageService getMessageService() {
+		return messageService;
+	}
+	
+	public String getText() {
+		return text;
+	}
+	
+	public void setMessageService(MessageService messageService) {
+		this.messageService = messageService;
+	}
+	
+	public void setText(String text) {
+		this.text = text;
 	}
 }

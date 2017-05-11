@@ -4,17 +4,16 @@ import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.Date;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter
-@Setter
 public class Message {
 	private final String text;
 	private final Instant createdAt = Instant.now();
 
 	public Message(String text) {
 		this.text = text;
+	}
+	
+	public String getText() {
+		return text;
 	}
 
 
