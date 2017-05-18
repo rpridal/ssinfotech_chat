@@ -17,7 +17,9 @@
 				styleClass="ui-priority-primary" />
 		</p:panel>
 		<p:panel header="All messages" id="messages" var="message">
-			
+			<p:dataList value="#{messageBean.getMessages()}" var="message">
+				#{message.getText()}
+			</p:dataList>
 		</p:panel>
 	</h:form>
 </h:body>

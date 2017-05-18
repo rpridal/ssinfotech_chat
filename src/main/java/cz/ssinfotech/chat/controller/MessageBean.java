@@ -31,12 +31,12 @@ public class MessageBean {
 		return messageService;
 	}
 	
-	public String getText() {
-		return text;
-	}
-	
 	public void setMessageService(MessageService messageService) {
 		this.messageService = messageService;
+	}
+	
+	public String getText() {
+		return text;
 	}
 	
 	public void setText(String text) {
