@@ -14,12 +14,16 @@ import cz.ssinfotech.chat.service.MessageService;
 public class MessageBean {
 
 	@Autowired
-	MessageService messageService;
+	private MessageService messageService;
+
+	@Autowired
+	private UserBean userBean;
 
 	private String text = "";
 
+
 	public void addMessage() {
-		this.messageService.addMessage(this.text);
+		this.messageService.addMessage(this.text, userBean.getCurrentUser());
 		this.text = "";
 	}
 

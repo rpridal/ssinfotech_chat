@@ -7,54 +7,20 @@ import java.util.Date;
 public class Message {
 	private final String text;
 	private final Instant createdAt = Instant.now();
+	private final User user;
 
-	public Message(String text) {
+	public Message(String text, User user) {
 		this.text = text;
+		this.user = user;
 	}
 	
 	public String getText() {
 		return text;
 	}
-
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((this.createdAt == null) ? 0 : this.createdAt.hashCode());
-		result = prime * result + ((this.text == null) ? 0 : this.text.hashCode());
-		return result;
+	
+	public User getUser() {
+		return user;
 	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (obj == null) {
-			return false;
-		}
-		if (this.getClass() != obj.getClass()) {
-			return false;
-		}
-		final Message other = (Message) obj;
-		if (this.createdAt == null) {
-			if (other.createdAt != null) {
-				return false;
-			}
-		} else if (!this.createdAt.equals(other.createdAt)) {
-			return false;
-		}
-		if (this.text == null) {
-			if (other.text != null) {
-				return false;
-			}
-		} else if (!this.text.equals(other.text)) {
-			return false;
-		}
-		return true;
-	}
-
 
 	public String getCreatedAt() {
 		final Date created = Date.from(this.createdAt);
@@ -63,4 +29,40 @@ public class Message {
 		return formattedDate;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((createdAt == null) ? 0 : createdAt.hashCode());
+		result = prime * result + ((text == null) ? 0 : text.hashCode());
+		result = prime * result + ((user == null) ? 0 : user.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Message other = (Message) obj;
+		if (createdAt == null) {
+			if (other.createdAt != null)
+				return false;
+		} else if (!createdAt.equals(other.createdAt))
+			return false;
+		if (text == null) {
+			if (other.text != null)
+				return false;
+		} else if (!text.equals(other.text))
+			return false;
+		if (user == null) {
+			if (other.user != null)
+				return false;
+		} else if (!user.equals(other.user))
+			return false;
+		return true;
+	}
 }

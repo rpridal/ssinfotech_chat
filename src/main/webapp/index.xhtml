@@ -8,6 +8,7 @@
 
 </h:head>
 <h:body>
+	#{userBean.isLogged()}
 	<h:form>
 		<h1>Chat</h1>
 		<p:panel header="Your messages">
@@ -18,7 +19,7 @@
 		</p:panel>
 		<p:panel header="All messages" id="messages" var="message">
 			<p:dataList value="#{messageBean.getMessages()}" var="message">
-				#{message.getText()}
+				#{message.getUser().getNick()}: #{message.getText()}
 			</p:dataList>
 		</p:panel>
 	</h:form>

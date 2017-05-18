@@ -10,15 +10,16 @@ import org.springframework.stereotype.Component;
 
 import cz.ssinfotech.chat.domain.Message;
 import cz.ssinfotech.chat.domain.MessageRepository;
+import cz.ssinfotech.chat.domain.User;
 
 @Component
 public class MessageService {
 
 	@Autowired
-	MessageRepository messageRepository;
-
-	public void addMessage(String text) {
-		final Message message = new Message(text);
+	private MessageRepository messageRepository;
+	
+	public void addMessage(String text, User user) {
+		final Message message = new Message(text, user);
 		this.messageRepository.addMessage(message);
 	}
 
